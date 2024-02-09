@@ -72,7 +72,7 @@ if (!empty($_SESSION['active'])) {
                 <img src="sistema/img/logo10.jpg" class="img-thumbnail">
               </div>
               <div class="col-lg-6">
-                <div class="p-5">
+                <div class="p-5 background-color=red ">
                   <div class="text-center">
                     <h1 class="h4 text-gray-900 mb-4">Iniciar Sesión</h1>
                   </div>

@@ -80,7 +80,7 @@ if ($result_data > 0) {
 					</button>
 					<div class="input-group">
 						<h6>Sistema de Venta</h6>
-						<p class="ml-auto"><strong></strong></p>
+						<p class="ml-auto"><strong></strong><?php echo fechaPeru(); ?></p>
 					</div>
 
 					<!-- Topbar Navbar -->
