@@ -146,7 +146,7 @@
 						<form action="empresa.php" method="post" id="frmEmpresa" class="p-3">
 							<div class="form-group">
 								<label>CUIT:</label>
-								<input type="number" name="txtDni" value="<?php echo $dni; ?>" id="txtDni" placeholder="Dni de la Empresa" required class="form-control">
+								<input type="text" name="txtDni" value="<?php echo $dni; ?>" id="txtDni" placeholder="Dni de la Empresa" required class="form-control">
 							</div>
 							<div class="form-group">
 								<label>Nombre:</label>
@@ -158,7 +158,7 @@
 							</div>
 							<div class="form-group">
 								<label>Teléfono:</label>
-								<input type="number" name="txtTelEmpresa" class="form-control" value="<?php echo $telEmpresa; ?>" id="txtTelEmpresa" placeholder="teléfono de la Empresa" required>
+								<input type="text" name="txtTelEmpresa" class="form-control" value="<?php echo $telEmpresa; ?>" id="txtTelEmpresa" placeholder="teléfono de la Empresa" required>
 							</div>
 							<div class="form-group">
 								<label>Correo Electrónico:</label>
@@ -190,7 +190,7 @@
 					<div class="card-body">
 						<div class="p-3">
 							<div class="form-group">
-								<strong>Ruc:</strong>
+								<strong>CUIT:</strong>
 								<h6><?php echo $dni; ?></h6>
 							</div>
 							<div class="form-group">
