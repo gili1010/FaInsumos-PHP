@@ -74,6 +74,21 @@
 			</div>
 		</div>
 	</li>
+
+	<!-- Nav Item - Envios Collapse Menu -->
+	<li class="nav-item">
+		<a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsenvios" aria-expanded="true" aria-controls="collapseUtilities">
+			<i class="fas fa-fw fa-wrench"></i>
+			<span>Envio y Distribución</span>
+		</a>
+		<div id="collapsenvios" class="collapse" aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
+			<div class="bg-white py-2 collapse-inner rounded">
+				<a class="collapse-item" href="registro_producto.php">Nuevo Envio</a>
+				<a class="collapse-item" href="lista_envios.php">Envios</a>
+			</div>
+		</div>
+	</li>
+
 	<?php if ($_SESSION['rol'] == 1) { ?>
 		<!-- Nav Item - Usuarios Collapse Menu -->
 		<li class="nav-item">
