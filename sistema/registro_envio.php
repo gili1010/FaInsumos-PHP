@@ -2,25 +2,24 @@
   include "../conexion.php";
   if (!empty($_POST)) {
     $alert = "";
-    if (empty($_POST['proveedor']) || empty($_POST['producto']) || empty($_POST['precio']) || $_POST['precio'] <  0 || empty($_POST['cantidad'] || $_POST['cantidad'] <  0)) {
+    if (empty($_POST['codventa']) || empty($_POST['codcliente']) || $_POST['codcliente'] <  0 || empty($_POST['direccion'] || $_POST['direccion'] <  0) || empty($_POST['estado'])) {
       $alert = '<div class="alert alert-danger" role="alert">
                 Todo los campos son obligatorios
               </div>';
     } else {
-      $proveedor = $_POST['proveedor'];
-      $producto = $_POST['producto'];
-      $precio = $_POST['precio'];
-      $cantidad = $_POST['cantidad'];
-      $usuario_id = $_SESSION['idUser'];
+      $codventa = $_POST['codventa'];
+      $codcliente = $_POST['codcliente'];
+      $direccion = $_POST['direccion'];
+      $estado = $_POST['estado'];
 
-      $query_insert = mysqli_query($conexion, "INSERT INTO producto(proveedor,descripcion,precio,existencia,usuario_id) values ('$proveedor', '$producto', '$precio', '$cantidad','$usuario_id')");
+      $query_insert = mysqli_query($conexion, "INSERT INTO envios(IdVenta,IdCliente,Direccion,estado) values ('$codventa', '$codcliente', '$direccion','$estado')");
       if ($query_insert) {
         $alert = '<div class="alert alert-primary" role="alert">
-                Producto Registrado
+                Envio Registrado
               </div>';
       } else {
         $alert = '<div class="alert alert-danger" role="alert">
-                Error al registrar el producto
+                Error al registrar el Envio
               </div>';
       }
     }
@@ -33,7 +32,7 @@
    <!-- Page Heading -->
    <div class="d-sm-flex align-items-center justify-content-between mb-4">
      <h1 class="h3 mb-0 text-gray-800">Panel de Administración</h1>
-     <a href="lista_productos.php" class="btn btn-primary">Regresar</a>
+     <a href="lista_Envios.php" class="btn btn-primary">Regresar</a>
    </div>
 
    <!-- Content Row -->
@@ -42,38 +41,26 @@
        <form action="" method="post" autocomplete="off">
          <?php echo isset($alert) ? $alert : ''; ?>
          <div class="form-group">
-           <label>Proveedor</label>
-           <?php
-            $query_proveedor = mysqli_query($conexion, "SELECT codproveedor, proveedor FROM proveedor ORDER BY proveedor ASC");
-            $resultado_proveedor = mysqli_num_rows($query_proveedor);
-            mysqli_close($conexion);
-            ?>
-           <select id="proveedor" name="proveedor" class="form-control">
-             <?php
-              if ($resultado_proveedor > 0) {
-                while ($proveedor = mysqli_fetch_array($query_proveedor)) {
-                  // code...
-              ?>
-                 <option value="<?php echo $proveedor['codproveedor']; ?>"><?php echo $proveedor['proveedor']; ?></option>
-             <?php
-                }
-              }
-              ?>
-           </select>
+           <label for="codventa">Codigo Venta</label>
+           <input type="text" placeholder="Ingrese  Codigo de la venta" name="codventa" id="codventa" class="form-control">
          </div>
          <div class="form-group">
-           <label for="producto">Producto</label>
-           <input type="text" placeholder="Ingrese nombre del producto" name="producto" id="producto" class="form-control">
+           <label for="codcliente">Codigo Cliente</label>
+           <input type="text" placeholder="Ingrese Codigo Cliente" class="form-control" name="codcliente" id="codcliente">
          </div>
          <div class="form-group">
-           <label for="precio">Precio</label>
-           <input type="text" placeholder="Ingrese precio" class="form-control" name="precio" id="precio">
+           <label for="direccion">Dirección</label>
+           <input type="text" placeholder="Ingrese Dirección" class="form-control" name="direccion" id="direccion">
          </div>
          <div class="form-group">
-           <label for="cantidad">Cantidad</label>
-           <input type="number" placeholder="Ingrese cantidad" class="form-control" name="cantidad" id="cantidad">
-         </div>
-         <input type="submit" value="Guardar Producto" class="btn btn-primary">
+            <label for="estado">Estado</label>
+            <select class="form-control" name="estado" id="estado">
+                <option value="Pendiente de envio">Pendiente de envío</option>
+                <option value="Enviado">Enviado</option>
+                <option value="Entregado">Entregado</option>
+            </select>
+        </div>
+         <input type="submit" value="Guardar" class="btn btn-primary">
        </form>
      </div>
    </div>

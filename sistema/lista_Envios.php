@@ -15,11 +15,11 @@
 				<table class="table table-striped table-bordered" id="table">
 					<thead class="thead-dark">
 						<tr>
-							<th>ID</th>
+							<th>NRO</th>
 							<th>CLIENTE</th>
 							<th>FECHA</th>
 							<th>DIRECCION</th>
-                            <th>PRECIO VENTA</th>
+                            <th>PRECIO</th>
                             <th>ESTADO</th>
 							<?php if ($_SESSION['rol'] == 1) { ?>
 							<th>ACCIONES</th>
@@ -50,7 +50,7 @@
 
 										<a href="editar_producto.php?id=<?php echo $data['IdVenta']; ?>" class="btn btn-success"><i class='fas fa-edit'></i></a>
 
-										<form action="eliminar_producto.php?id=<?php echo $data['IdVenta']; ?>" method="post" class="confirmar d-inline">
+										<form action="eliminar_envio.php?id=<?php echo $data['IdVenta']; ?>" method="post" class="confirmar d-inline">
 											<button class="btn btn-danger" type="submit"><i class='fas fa-trash-alt'></i> </button>
 										</form>
 									</td>
