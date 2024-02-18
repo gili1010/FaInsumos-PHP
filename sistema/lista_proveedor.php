@@ -16,7 +16,7 @@
 					<thead class="thead-dark">
 						<tr>
 							<th>ID</th>
-							<th>RUC</th>
+							<th>CUIT</th>
 							<th>PROVEEDOR</th>
 							<th>TELEFONO</th>
 							<th>DIRECCION</th>

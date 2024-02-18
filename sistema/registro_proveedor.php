@@ -55,7 +55,7 @@ mysqli_close($conexion);
                         <input type="text" placeholder="Ingrese nombre" name="proveedor" id="nombre" class="form-control">
                     </div>
                     <div class="form-group">
-                        <label for="contacto">RUC</label>
+                        <label for="contacto">CUIT</label>
                         <input type="text" placeholder="Ingrese nombre del contacto" name="contacto" id="contacto" class="form-control">
                     </div>
                     <div class="form-group">
