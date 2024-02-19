@@ -1,4 +1,9 @@
-<?php include_once "includes/header.php"; ?>
+<?php include_once "includes/header.php"; 
+include "../conexion.php";
+
+
+
+?>
 
                 <!-- Begin Page Content -->
                 <div class="container-fluid">
@@ -10,36 +15,35 @@
                             </div>
                             <div class="card">
                                 <div class="card-body">
-                                    <form method="post" name="form_new_cliente_venta" id="form_new_cliente_venta">
-                                        <input type="hidden" name="action" value="addCliente">
-                                        <input type="hidden" id="idcliente" value="1" name="idcliente" required>
+                                    <form method="post" action="">
+                                        
                                         <div class="row">
                                             <div class="col-lg-4">
                                                 <div class="form-group">
                                                     <label>CUIT</label>
-                                                    <input type="number" name="dni_cliente" id="dni_cliente" class="form-control">
+                                                    <input type="text" name="contacto" id="contacto" class="form-control" value="">
                                                 </div>
                                             </div>
                                             <div class="col-lg-4">
                                                 <div class="form-group">
                                                     <label>Razon Social</label>
-                                                    <input type="text" name="nom_cliente" id="nom_cliente" class="form-control" disabled required>
+                                                    <input type="text" name="proveedor" id="proveedor" class="form-control"  value="">
                                                 </div>
                                             </div>
                                             <div class="col-lg-4">
                                                 <div class="form-group">
                                                     <label>Teléfono</label>
-                                                    <input type="number" name="tel_cliente" id="tel_cliente" class="form-control" disabled required>
+                                                    <input type="number" name="telefono" id="telefono" class="form-control" value="">
                                                 </div>
                                             </div>
                                             <div class="col-lg-4">
                                                 <div class="form-group">
                                                     <label>Dirreción</label>
-                                                    <input type="text" name="dir_cliente" id="dir_cliente" class="form-control" disabled required>
+                                                    <input type="text" name="direccion" id="direccion" class="form-control" value="">
                                                 </div>
 
                                             </div>
-                                            <div id="div_registro_cliente" style="display: none;">
+                                            <div id="div_registro_compra" style="display: none;">
                                                 <button type="submit" class="btn btn-primary">Guardar</button>
                                             </div>
                                         </div>
@@ -57,8 +61,8 @@
                                 <div class="col-lg-6">
                                     <label>Acciones</label>
                                     <div id="acciones_venta" class="form-group">
-                                        <a href="#" class="btn btn-danger" id="btn_anular_venta">Anular</a>
-                                        <a href="#" class="btn btn-primary" id="btn_facturar_venta"><i class="fas fa-save"></i> Generar Remito</a>
+                                        <a href="#" class="btn btn-danger" id="btn_anular_compra">Anular</a>
+                                        <a href="#" class="btn btn-primary" id="btn_facturar_compra"><i class="fas fa-save"></i> Generar Remito</a>
                                     </div>
                                 </div>
                             </div>

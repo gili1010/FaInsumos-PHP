@@ -5,7 +5,7 @@
 
 	<!-- Page Heading -->
 	<div class="d-sm-flex align-items-center justify-content-between mb-4">
-		<h1 class="h3 mb-0 text-gray-800">Panel de Administración</h1>
+		<h1 class="h3 mb-0 text-gray-800">Panel de Administración | Listado Compras</h1>
 	</div>
 	<div class="row">
 		<div class="col-lg-12">
@@ -16,7 +16,7 @@
 							<th>Id</th>
 							<th>Fecha</th>
 							<th>Total</th>
-							<th>Acciones</th>
+							
 						</tr>
 					</thead>
 					<tbody>
@@ -33,9 +33,7 @@
 									<td><?php echo $dato['noremito']; ?></td>
 									<td><?php echo $dato['fecha']; ?></td>
 									<td><?php echo $dato['totalremito']; ?></td>
-									<td>
-										<button type="button" class="btn btn-primary view_factura" cl="<?php echo $dato['codproveedor'];  ?>" f="<?php echo $dato['noremito']; ?>">Ver</button>
-									</td>
+									
 								</tr>
 						<?php }
 						} ?>
@@ -52,6 +50,5 @@
 
 </div>
 <!-- End of Main Content -->
-
-
 <?php include_once "includes/footer.php"; ?>
+
