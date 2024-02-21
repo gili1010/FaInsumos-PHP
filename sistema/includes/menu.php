@@ -40,6 +40,18 @@
 	<?php //LUEGO DE VENTAS PODRIAMOS PONER COMPRAS ACÁ. UNA VEZ QUE LO HAGAS YO TE LO MODIFICO PARA
 	//CONFIGURAR EL PERMISO DE LOS TRES USUARIOS 
 	?>
+	<li class="nav-item">
+		<a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseCompras" aria-expanded="true" aria-controls="collapseUtilities">
+			<i class="fas fa-shopping-cart"></i>
+			<span>Compras</span>
+		</a>
+		<div id="collapseCompras" class="collapse" aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
+			<div class="bg-white py-2 collapse-inner rounded">
+				<a class="collapse-item" href="nueva_compra.php">Nueva Compra</a>
+				<a class="collapse-item" href="compras.php">Lista Compras</a>
+			</div>
+		</div>
+	</li>
 
 	<!-- Nav Item - Productos Collapse Menu -->
 	<li class="nav-item">
@@ -81,6 +93,9 @@
 			</div>
 		</div>
 	</li>
+
+	
+
 	<?php if ($_SESSION['rol'] == 1) { ?>
 		<!-- Nav Item - Usuarios Collapse Menu -->
 		<li class="nav-item">
