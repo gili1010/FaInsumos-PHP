@@ -74,18 +74,6 @@
 			</div>
 		</div>
 	</li>
-	<li class="nav-item">
-		<a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseCompras" aria-expanded="true" aria-controls="collapseCompras">
-			<i class="fas fa-shopping-cart"></i>
-			<span>Compras</span>
-		</a>
-		<div id="collapseCompras" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
-			<div class="bg-white py-2 collapse-inner rounded">
-				<a class="collapse-item" href="nueva_compra.php">Nueva compra</a>
-				<a class="collapse-item" href="compras.php">Compras</a>
-			</div>
-		</div>
-	</li>
 	<?php if ($_SESSION['rol'] == 1) { ?>
 		<!-- Nav Item - Usuarios Collapse Menu -->
 		<li class="nav-item">
