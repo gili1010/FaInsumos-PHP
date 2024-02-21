@@ -271,6 +271,16 @@ INSERT INTO `proveedor` (`codproveedor`, `proveedor`, `contacto`, `telefono`, `d
 
 -- --------------------------------------------------------
 
+-- Estructura de tabla para la tabla `envios` NUEVO
+CREATE TABLE `envios` (
+  `IdVenta` int(11) NOT NULL,
+  `IdCliente` int(11) NOT NULL,
+  `Direccion` varchar(50) NOT NULL,
+  `estado` varchar(50) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+
+
 --
 -- Estructura de tabla para la tabla `rol`
 --
