@@ -3,7 +3,7 @@ include_once "includes/header.php";
 include "../conexion.php";
 if (!empty($_POST)) {
   $alert = "";
-  if (empty($_POST['producto']) || empty($_POST['precio'])) {
+  if (empty($_POST['producto']) || empty($_POST['precio']) || empty($_POST['detalleProducto']) || empty($_POST['marca'])) {
     $alert = '<div class="alert alert-primary" role="alert">
               Todo los campos son requeridos
             </div>';
@@ -11,8 +11,10 @@ if (!empty($_POST)) {
     $codproducto = $_GET['id'];
     $proveedor = $_POST['proveedor'];
     $producto = $_POST['producto'];
+    $detalleProducto = $_POST['detalleProducto'];
+    $marca = $_POST['marca'];
     $precio = $_POST['precio'];
-    $query_update = mysqli_query($conexion, "UPDATE producto SET descripcion = '$producto', proveedor= $proveedor,precio= $precio WHERE codproducto = $codproducto");
+    $query_update = mysqli_query($conexion, "UPDATE producto SET descripcion = '$producto', detalleProducto = '$detalleProducto', marca = '$marca', precio= $precio WHERE codproducto = $codproducto");
     if ($query_update) {
       $alert = '<div class="alert alert-primary" role="alert">
               Modificado
@@ -34,7 +36,12 @@ if (empty($_REQUEST['id'])) {
   if (!is_numeric($id_producto)) {
     header("Location: lista_productos.php");
   }
-  $query_producto = mysqli_query($conexion, "SELECT p.codproducto, p.descripcion, p.precio, pr.codproveedor, pr.proveedor FROM producto p INNER JOIN proveedor pr ON p.proveedor = pr.codproveedor WHERE p.codproducto = $id_producto");
+  $query_producto = mysqli_query($conexion, "SELECT p.codproducto, p.descripcion, p.detalleProducto, p.marca, p.precio, 
+  pr.codproveedor, pr.proveedor 
+  FROM producto p 
+  INNER JOIN proveedor pr 
+  ON p.proveedor = pr.codproveedor
+   WHERE p.codproducto = $id_producto");
   $result_producto = mysqli_num_rows($query_producto);
 
   if ($result_producto > 0) {
@@ -80,11 +87,19 @@ if (empty($_REQUEST['id'])) {
             <div class="form-group">
               <label for="producto">Producto</label>
               <input type="text" class="form-control" placeholder="Ingrese nombre del producto" name="producto" id="producto" value="<?php echo $data_producto['descripcion']; ?>">
-
+            </div>
+            <div class="form-group">
+              <label for="producto">Detalle de producto</label>
+              <input type="text" class="form-control" placeholder="Ingrese detalle de prodcuto" name="detalleProducto" id="detalleProducto" value="<?php echo $data_producto['detalleProducto']; ?>">
+            </div>
+            <div class="form-group">
+              <label for="producto">Marca</label>
+              <input type="text" class="form-control" placeholder="Ingrese marca" name="marca" id="marca" value="<?php echo $data_producto['marca']; ?>">
             </div>
             <div class="form-group">
               <label for="precio">Precio</label>
               <input type="text" placeholder="Ingrese precio" class="form-control" name="precio" id="precio" value="<?php echo $data_producto['precio']; ?>">
+
 
             </div>
             <input type="submit" value="Actualizar Producto" class="btn btn-primary">

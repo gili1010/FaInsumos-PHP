@@ -17,10 +17,12 @@
 						<tr>
 							<th>ID</th>
 							<th>PRODUCTO</th>
+							<th>DETALLE PRODUCTO</th>
+							<th>MARCA</th>
 							<th>PRECIO</th>
 							<th>STOCK</th>
 							<?php if ($_SESSION['rol'] == 1) { ?>
-							<th>ACCIONES</th>
+								<th>ACCIONES</th>
 							<?php } ?>
 						</tr>
 					</thead>
@@ -35,19 +37,21 @@
 								<tr>
 									<td><?php echo $data['codproducto']; ?></td>
 									<td><?php echo $data['descripcion']; ?></td>
+									<td><?php echo $data['detalleProducto']; ?></td>
+									<td><?php echo $data['marca']; ?></td>
 									<td><?php echo $data['precio']; ?></td>
 									<td><?php echo $data['existencia']; ?></td>
-										<?php if ($_SESSION['rol'] == 1) { ?>
-									<td>
-										<a href="agregar_producto.php?id=<?php echo $data['codproducto']; ?>" class="btn btn-primary"><i class='fas fa-audio-description'></i></a>
+									<?php if ($_SESSION['rol'] == 1) { ?>
+										<td>
+											<a href="agregar_producto.php?id=<?php echo $data['codproducto']; ?>" class="btn btn-primary"><i class='fas fa-audio-description'></i></a>
 
-										<a href="editar_producto.php?id=<?php echo $data['codproducto']; ?>" class="btn btn-success"><i class='fas fa-edit'></i></a>
+											<a href="editar_producto.php?id=<?php echo $data['codproducto']; ?>" class="btn btn-success"><i class='fas fa-edit'></i></a>
 
-										<form action="eliminar_producto.php?id=<?php echo $data['codproducto']; ?>" method="post" class="confirmar d-inline">
-											<button class="btn btn-danger" type="submit"><i class='fas fa-trash-alt'></i> </button>
-										</form>
-									</td>
-										<?php } ?>
+											<form action="eliminar_producto.php?id=<?php echo $data['codproducto']; ?>" method="post" class="confirmar d-inline">
+												<button class="btn btn-danger" type="submit"><i class='fas fa-trash-alt'></i> </button>
+											</form>
+										</td>
+									<?php } ?>
 								</tr>
 						<?php }
 						} ?>
