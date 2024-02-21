@@ -68,7 +68,7 @@ if (!empty($_SESSION['active'])) {
           <div class="card-body p-0">
             <!-- Nested Row within Card Body -->
             <div class="row">
-              <div class="col-lg-6 d-none d-lg-block bg-login-image">
+              <div class="col-lg-6 d-none d-lg-block">
                 <img src="sistema/img/logo10.jpg" class="img-thumbnail">
               </div>
               <div class="col-lg-6">
@@ -80,7 +80,8 @@ if (!empty($_SESSION['active'])) {
                     <?php echo isset($alert) ? $alert : ""; ?>
                     <div class="form-group">
                       <label for="">Usuario</label>
-                      <input type="text" class="form-control" placeholder="Usuario" name="usuario"></div>
+                      <input type="text" class="form-control" placeholder="Usuario" name="usuario">
+                    </div>
                     <div class="form-group">
                       <label for="">Contraseña</label>
                       <input type="password" class="form-control" placeholder="Contraseña" name="clave">
