@@ -11,7 +11,7 @@ include "../conexion.php";
                         <div class="col-lg-12">
                             <div class="form-group">
                                 <h4 class="text-center">Datos del Proveedor</h4>
-                                <a href="registro_proveedor.php" class="btn btn-primary btn_new_cliente"><i class="fas fa-user-plus"></i> Nuevo Proveedor</a>
+                                <a href="registro_proveedor.php" class="btn btn-primary btn_new_cliente"><i class="fas fa-user-plus"></i> Nueva Compra</a>
                             </div>
                             <div class="card">
                                 <div class="card-body">
@@ -54,7 +54,7 @@ include "../conexion.php";
                             <div class="row">
                                 <div class="col-lg-6">
                                     <div class="form-group">
-                                        <label><i class="fas fa-user"></i> Enc. Deposito</label>
+                                        <label><i class="fas fa-user"></i> Enc. Compras</label>
                                         <p style="font-size: 16px; text-transform: uppercase; color: blue;"><?php echo $_SESSION['nombre']; ?></p>
                                     </div>
                                 </div>
