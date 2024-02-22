@@ -61,7 +61,9 @@
 		</a>
 		<div id="collapseUtilities" class="collapse" aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
 			<div class="bg-white py-2 collapse-inner rounded">
-				<a class="collapse-item" href="registro_producto.php">Nuevo Producto</a>
+				<?php if ($_SESSION['rol'] == 1 || $_SESSION['rol'] == 3) { ?>
+					<a class="collapse-item" href="registro_producto.php">Nuevo Producto</a>
+				<?php } ?>
 				<a class="collapse-item" href="lista_productos.php">Productos</a>
 			</div>
 		</div>
@@ -75,25 +77,29 @@
 		</a>
 		<div id="collapseClientes" class="collapse" aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
 			<div class="bg-white py-2 collapse-inner rounded">
-				<a class="collapse-item" href="registro_cliente.php">Nuevo Clientes</a>
+				<?php if ($_SESSION['rol'] == 1 || $_SESSION['rol'] == 2) { ?>
+					<a class="collapse-item" href="registro_cliente.php">Nuevo Clientes</a>
+				<?php } ?>
+
 				<a class="collapse-item" href="lista_cliente.php">Clientes</a>
 			</div>
 		</div>
 	</li>
-	<!-- Nav Item - Utilities Collapse Menu -->
-	<li class="nav-item">
-		<a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseProveedor" aria-expanded="true" aria-controls="collapseUtilities">
-			<i class="fas fa-hospital"></i>
-			<span>Proveedor</span>
-		</a>
-		<div id="collapseProveedor" class="collapse" aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
-			<div class="bg-white py-2 collapse-inner rounded">
-				<a class="collapse-item" href="registro_proveedor.php">Nuevo Proveedor</a>
-				<a class="collapse-item" href="lista_proveedor.php">Proveedores</a>
+	<?php if ($_SESSION['rol'] == 1) { ?>
+		<!-- Nav Item - Utilities Collapse Menu -->
+		<li class="nav-item">
+			<a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseProveedor" aria-expanded="true" aria-controls="collapseUtilities">
+				<i class="fas fa-hospital"></i>
+				<span>Proveedor</span>
+			</a>
+			<div id="collapseProveedor" class="collapse" aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
+				<div class="bg-white py-2 collapse-inner rounded">
+					<a class="collapse-item" href="registro_proveedor.php">Nuevo Proveedor</a>
+					<a class="collapse-item" href="lista_proveedor.php">Proveedores</a>
+				</div>
 			</div>
-		</div>
-	</li>
-
+		</li>
+	<?php } ?>
 	<!-- Nav Item - Envios Collapse Menu -->
 	<li class="nav-item">
 		<a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsenvios" aria-expanded="true" aria-controls="collapseUtilities">
