@@ -48,7 +48,7 @@
 									<td>
 										<a href="agregar_producto.php?id=<?php echo $data['IdVenta']; ?>" class="btn btn-primary"><i class='fas fa-audio-description'></i></a>
 
-										<a href="editar_producto.php?id=<?php echo $data['IdVenta']; ?>" class="btn btn-success"><i class='fas fa-edit'></i></a>
+										<a href="editar_envio.php?id=<?php echo $data['IdVenta']; ?>" class="btn btn-success"><i class='fas fa-edit'></i></a>
 
 										<form action="eliminar_envio.php?id=<?php echo $data['IdVenta']; ?>" method="post" class="confirmar d-inline">
 											<button class="btn btn-danger" type="submit"><i class='fas fa-trash-alt'></i> </button>
