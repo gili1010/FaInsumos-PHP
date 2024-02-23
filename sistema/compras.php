@@ -24,16 +24,21 @@ if (empty($_SESSION['nombre']) || $_SESSION['rol'] != 1) {
 				<table class="table table-striped table-bordered" id="table">
 					<thead class="thead-dark">
 						<tr>
-							<th>Id</th>
-							<th>Fecha</th>
-							<th>Total</th>
+							<th>Nro Compra</th>
+							<th>Fecha de compra</th>
+							<th>Proveedor</th>
+							<th>Comprobante</th>
+							<th>Usuario</th>
+							<th>Producto</th>
+							<th>Precio Compra</th>
+							<th>Cantidad</th>
 
 						</tr>
 					</thead>
 					<tbody>
 						<?php
 						require "../conexion.php";
-						$query = mysqli_query($conexion, "SELECT noremito, fecha,codproveedor, totalremito, estado FROM remito ORDER BY noremito DESC");
+						$query = mysqli_query($conexion, "SELECT nro_compra,fecha_compra,codproveedor,comprobante,idusuario,codproducto,precio_compra,cantidad  FROM tb_compras ORDER BY nro_compra DESC");
 						mysqli_close($conexion);
 						$cli = mysqli_num_rows($query);
 
@@ -41,10 +46,14 @@ if (empty($_SESSION['nombre']) || $_SESSION['rol'] != 1) {
 							while ($dato = mysqli_fetch_array($query)) {
 						?>
 								<tr>
-									<td><?php echo $dato['noremito']; ?></td>
-									<td><?php echo $dato['fecha']; ?></td>
-									<td><?php echo $dato['totalremito']; ?></td>
-
+									<td><?php echo $dato['nro_compra']; ?></td>
+									<td><?php echo $dato['fecha_compra']; ?></td>
+									<td><?php echo $dato['codproveedor']; ?></td>
+									<td><?php echo $dato['comprobante']; ?></td>
+									<td><?php echo $dato['idusuario']; ?></td>
+									<td><?php echo $dato['codproducto']; ?></td>
+									<td><?php echo $dato['precio_compra']; ?></td>
+									<td><?php echo $dato['cantidad']; ?></td>
 								</tr>
 						<?php }
 						} ?>
