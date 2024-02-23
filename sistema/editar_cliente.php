@@ -1,3 +1,16 @@
+<?php
+session_start();
+
+// Verificar si el usuario no está logueado o no tiene el rol adecuado
+if (empty($_SESSION['nombre']) || $_SESSION['rol'] != 1 || $_SESSION['rol'] == 2) {
+
+  // Si no está logueado o no tiene el rol adecuado, redirigir al cierre de sesión
+  header('Location: index.php');
+
+  exit;
+}
+
+?>
 <?php include_once "includes/header.php";
 include "../conexion.php";
 if (!empty($_POST)) {
@@ -55,40 +68,40 @@ if ($result_sql == 0) {
   }
 }
 ?>
-        <!-- Begin Page Content -->
-        <div class="container-fluid">
+<!-- Begin Page Content -->
+<div class="container-fluid">
 
-          <div class="row">
-            <div class="col-lg-6 m-auto">
+  <div class="row">
+    <div class="col-lg-6 m-auto">
 
-              <form class="" action="" method="post">
-                <?php echo isset($alert) ? $alert : ''; ?>
-                <input type="hidden" name="id" value="<?php echo $idcliente; ?>">
-                <div class="form-group">
-                  <label for="dni">Dni</label>
-                  <input type="number" placeholder="Ingrese dni" name="dni" id="dni" class="form-control" value="<?php echo $dni; ?>">
-                </div>
-                <div class="form-group">
-                  <label for="nombre">Nombre</label>
-                  <input type="text" placeholder="Ingrese Nombre" name="nombre" class="form-control" id="nombre" value="<?php echo $nombre; ?>">
-                </div>
-                <div class="form-group">
-                  <label for="telefono">Teléfono</label>
-                  <input type="number" placeholder="Ingrese Teléfono" name="telefono" class="form-control" id="telefono" value="<?php echo $telefono; ?>">
-                </div>
-                <div class="form-group">
-                  <label for="direccion">Dirección</label>
-                  <input type="text" placeholder="Ingrese Direccion" name="direccion" class="form-control" id="direccion" value="<?php echo $direccion; ?>">
-                </div>
-                <button type="submit" class="btn btn-primary"><i class="fas fa-user-edit"></i> Editar Cliente</button>
-              </form>
-            </div>
-          </div>
-
-
+      <form class="" action="" method="post">
+        <?php echo isset($alert) ? $alert : ''; ?>
+        <input type="hidden" name="id" value="<?php echo $idcliente; ?>">
+        <div class="form-group">
+          <label for="dni">Dni</label>
+          <input type="number" placeholder="Ingrese dni" name="dni" id="dni" class="form-control" value="<?php echo $dni; ?>">
         </div>
-        <!-- /.container-fluid -->
+        <div class="form-group">
+          <label for="nombre">Nombre</label>
+          <input type="text" placeholder="Ingrese Nombre" name="nombre" class="form-control" id="nombre" value="<?php echo $nombre; ?>">
+        </div>
+        <div class="form-group">
+          <label for="telefono">Teléfono</label>
+          <input type="number" placeholder="Ingrese Teléfono" name="telefono" class="form-control" id="telefono" value="<?php echo $telefono; ?>">
+        </div>
+        <div class="form-group">
+          <label for="direccion">Dirección</label>
+          <input type="text" placeholder="Ingrese Direccion" name="direccion" class="form-control" id="direccion" value="<?php echo $direccion; ?>">
+        </div>
+        <button type="submit" class="btn btn-primary"><i class="fas fa-user-edit"></i> Editar Cliente</button>
+      </form>
+    </div>
+  </div>
 
-      </div>
-      <!-- End of Main Content -->
-      <?php include_once "includes/footer.php"; ?>
+
+</div>
+<!-- /.container-fluid -->
+
+</div>
+<!-- End of Main Content -->
+<?php include_once "includes/footer.php"; ?>

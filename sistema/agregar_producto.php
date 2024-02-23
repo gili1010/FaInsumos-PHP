@@ -1,4 +1,17 @@
 <?php
+session_start();
+
+// Verificar si el usuario no está logueado o no tiene el rol adecuado
+if (empty($_SESSION['nombre']) || $_SESSION['rol'] != 1) {
+    // Si no está logueado o no tiene el rol adecuado, redirigir al cierre de sesión
+    header('Location: index.php');
+
+    exit;
+}
+
+?>
+
+<?php
 include_once "includes/header.php";
 include "../conexion.php";
 // Validar producto

@@ -1,5 +1,9 @@
 <?php
-session_start();
+if (session_status() == PHP_SESSION_NONE) {
+	// Si la sesión no está activa, iniciarla
+	session_start();
+}
+//session_start();
 if (empty($_SESSION['active'])) {
 	header('location: ../');
 }

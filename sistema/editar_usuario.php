@@ -1,4 +1,18 @@
 <?php
+session_start();
+
+// Verificar si el usuario no está logueado o no tiene el rol adecuado
+if ($_SESSION['rol'] != 1) {
+  // Si no está logueado o no tiene el rol adecuado, redirigir al cierre de sesión
+  header('Location: salir.php');
+
+  exit;
+}
+
+?>
+
+
+<?php
 include "includes/header.php";
 include "../conexion.php";
 if (!empty($_POST)) {
