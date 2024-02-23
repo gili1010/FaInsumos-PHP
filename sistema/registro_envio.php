@@ -2,18 +2,23 @@
   include "../conexion.php";
   if (!empty($_POST)) {
     $alert = "";
-    if (empty($_POST['codventa']) || empty($_POST['codcliente']) || $_POST['codcliente'] <  0 || empty($_POST['direccion'] || $_POST['direccion'] <  0) || empty($_POST['estado'])) {
+    if (empty($_POST['codventa']) || empty($_POST['direccion'] || $_POST['direccion'] <  0) || empty($_POST['estado'])) {
       $alert = '<div class="alert alert-danger" role="alert">
                 Todo los campos son obligatorios
               </div>';
     } else {
       $codventa = $_POST['codventa'];
-      $codcliente = $_POST['codcliente'];
       $direccion = $_POST['direccion'];
       $estado = $_POST['estado'];
 
+       // Consulta para obtener el código del cliente asociado a la venta
+       $query_cliente = mysqli_query($conexion, "SELECT codcliente FROM factura WHERE nofactura = '$codventa'");
+       $result_cliente = mysqli_fetch_assoc($query_cliente);
+
+      $codcliente = $result_cliente['codcliente'];
+
       $query_insert = mysqli_query($conexion, "INSERT INTO envios(IdVenta,IdCliente,Direccion,estado) values ('$codventa', '$codcliente', '$direccion','$estado')");
-      if ($query_insert) {
+       if ($query_insert) {
         $alert = '<div class="alert alert-primary" role="alert">
                 Envio Registrado
               </div>';
@@ -24,6 +29,7 @@
       }
     }
   }
+
   ?>
 
  <!-- Begin Page Content -->
@@ -43,10 +49,6 @@
          <div class="form-group">
            <label for="codventa">Codigo Venta</label>
            <input type="text" placeholder="Ingrese  Codigo de la venta" name="codventa" id="codventa" class="form-control">
-         </div>
-         <div class="form-group">
-           <label for="codcliente">Codigo Cliente</label>
-           <input type="text" placeholder="Ingrese Codigo Cliente" class="form-control" name="codcliente" id="codcliente">
          </div>
          <div class="form-group">
            <label for="direccion">Dirección</label>

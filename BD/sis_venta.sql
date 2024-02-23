@@ -64,7 +64,7 @@ SELECT COUNT(*) INTO usuarios FROM usuario;
 SELECT COUNT(*) INTO clientes FROM cliente;
 SELECT COUNT(*) INTO proveedores FROM proveedor;
 SELECT COUNT(*) INTO productos FROM producto;
-SELECT COUNT(*) INTO ventas FROM factura WHERE fecha > CURDATE();
+SELECT COUNT(*) INTO ventas FROM factura;
 
 SELECT usuarios, clientes, proveedores, productos, ventas;
 
